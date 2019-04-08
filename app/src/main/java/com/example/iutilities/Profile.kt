@@ -28,5 +28,20 @@ class Profile : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+
+        mkt_button.setOnClickListener {
+            val intent = Intent(this, Marketplace::class.java)
+            startActivity(intent)
+        }
+
+        tuitions_button.setOnClickListener {
+            val intent = Intent(this, Tuitions::class.java)
+            startActivity(intent)
+        }
+
+        rides_button.setOnClickListener {
+            val intent = Intent(this, Rides::class.java)
+            startActivity(intent)
+        }
     }
 }

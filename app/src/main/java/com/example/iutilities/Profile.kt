@@ -16,14 +16,14 @@ class Profile : AppCompatActivity() {
 
         if ( uid == null )
         {
-            val intent = Intent(this, Login::class.java)
+            val intent = Intent(this, LoginRegister::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
         }
 
         sign_out_button.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
-            val intent = Intent(this, Login::class.java)
+            val intent = Intent(this, LoginRegister::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
             finish()

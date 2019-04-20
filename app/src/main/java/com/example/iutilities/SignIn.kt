@@ -13,8 +13,16 @@ class SignIn : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_in)
 
-        sign_in_button.setOnClickListener {
+        register_button.setOnClickListener {
             signInUser()
+        }
+
+        facebook_login.setOnClickListener {
+            Toast.makeText(this, "This is a WIP", Toast.LENGTH_SHORT).show()
+        }
+
+        gmail_login.setOnClickListener {
+            Toast.makeText(this, "This is a WIP", Toast.LENGTH_SHORT).show()
         }
     }
 

@@ -17,6 +17,14 @@ class Register : AppCompatActivity() {
         register_button.setOnClickListener {
             registerUser()
         }
+
+        facebook_login.setOnClickListener {
+            Toast.makeText(this, "This is a WIP", Toast.LENGTH_SHORT).show()
+        }
+
+        gmail_login.setOnClickListener {
+            Toast.makeText(this, "This is a WIP", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun registerUser()

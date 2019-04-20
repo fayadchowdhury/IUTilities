@@ -8,7 +8,6 @@
         tools:context=".Login"
         android:background="@drawable/loginpage">
     <Button
-
             android:gravity="center"
             android:background="@drawable/rounded_button"
             android:textColor="#ffffff"

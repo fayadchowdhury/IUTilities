@@ -30,7 +30,7 @@
         </activity>
         <activity android:name=".SignIn">
         </activity>
-        <activity android:name=".Login">
+        <activity android:name=".LoginRegister">
         </activity>
         <activity android:name=".MainActivity">
             <intent-filter>

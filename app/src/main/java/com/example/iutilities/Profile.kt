@@ -3,6 +3,7 @@ package com.example.iutilities
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log.d
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_profile.*
 
@@ -16,6 +17,7 @@ class Profile : AppCompatActivity() {
 
         if ( uid == null )
         {
+            d("IUTils", "No UID found")
             val intent = Intent(this, LoginRegister::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)

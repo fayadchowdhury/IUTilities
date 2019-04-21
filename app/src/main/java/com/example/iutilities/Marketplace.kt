@@ -16,7 +16,7 @@ class Marketplace : AppCompatActivity() {
             startActivity(intent)
         }
 
-        sell_button.setOnClickListener {
+        sell_button_sell.setOnClickListener {
             val intent = Intent(this, Sell::class.java)
             startActivity(intent)
         }

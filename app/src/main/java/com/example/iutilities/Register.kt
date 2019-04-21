@@ -49,6 +49,11 @@ class Register : AppCompatActivity() {
                     ref.child("$uid").setValue(user)
                         .addOnSuccessListener {
                             Toast.makeText(this, "User added to database successfully", Toast.LENGTH_SHORT).show()
+                            val user_now = FirebaseAuth.getInstance().currentUser
+                            user_now?.sendEmailVerification()
+                                ?.addOnSuccessListener {
+                                    Toast.makeText(this, "Email sent to $email", Toast.LENGTH_SHORT).show()
+                                }
                             val intent = Intent(this, Profile::class.java)
                             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
                             startActivity(intent)
@@ -59,7 +64,7 @@ class Register : AppCompatActivity() {
                         }
                 }
                 .addOnFailureListener {
-                    Toast.makeText(this, "User created. ${it.message}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "User not created. ${it.message}", Toast.LENGTH_SHORT).show()
                 }
         }
     }

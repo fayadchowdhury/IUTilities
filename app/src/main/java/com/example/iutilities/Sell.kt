@@ -26,7 +26,7 @@ class Sell : AppCompatActivity() {
             {
                 val ref = FirebaseDatabase.getInstance().getReference("sell/${cat_text.text.toString()}")
                 val item = Item(cat_text.text.toString(), name_text.text.toString(), price_text.text.toString(), desc_text.text.toString())
-                ref.setValue(item)
+                ref.child("${name_text.text.toString()}").setValue(item)
                     .addOnFailureListener {
                         Toast.makeText(this, "Pushing failed. ${it.message}", Toast.LENGTH_SHORT).show()
                     }

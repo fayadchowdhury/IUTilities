@@ -11,7 +11,9 @@ import android.os.Environment
 import android.provider.MediaStore
 import android.support.v4.content.FileProvider
 import android.util.Log.d
+import android.widget.PopupMenu
 import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_sell.*
@@ -42,6 +44,48 @@ class Sell : AppCompatActivity() {
 
         }
 
+        cat_select.setOnClickListener {
+            val popupMenu = PopupMenu(this, it)
+            popupMenu.setOnMenuItemClickListener { item ->
+                when(item.itemId)
+                {
+                    R.id.cat_tech ->
+                    {
+                        cat_text.setText("Tech")
+                        true
+                    }
+                    R.id.cat_stationery ->
+                    {
+                        cat_text.setText("Stationery")
+                        true
+                    }
+                    R.id.cat_furniture ->
+                    {
+                        cat_text.setText("Furniture")
+                        true
+                    }
+                    R.id.cat_accessories ->
+                    {
+                        cat_text.setText("Accessories")
+                        true
+                    }
+                    R.id.cat_clothes ->
+                    {
+                        cat_text.setText("Clothes")
+                        true
+                    }
+                    R.id.cat_books ->
+                    {
+                        cat_text.setText("Books")
+                        true
+                    }
+                    else -> false
+                }
+            }
+            popupMenu.inflate(R.menu.cat_menu)
+            popupMenu.show()
+        }
+
         sell_button_sell.setOnClickListener {
             if ( name_text.text == null || price_text.text == null || cat_text.text == null ) {
                 d("IUTils", "Please enter the name, the price and the category and a brief description of the item you're selling")
@@ -53,6 +97,7 @@ class Sell : AppCompatActivity() {
             }
             else
             {
+                val poster = FirebaseAuth.getInstance().currentUser?.displayName.toString()
                 val storef = FirebaseStorage.getInstance().getReference("/sellphotos/${cat_text.text.toString()}/${name_text.text.toString()}")
                 storef.putFile(uri!!)
                     .addOnSuccessListener {
@@ -61,14 +106,14 @@ class Sell : AppCompatActivity() {
                                 url = it.toString()
                                 d("IUTils", "url within success listener = $url")
                                 val ref = FirebaseDatabase.getInstance().getReference("sell/${cat_text.text.toString()}")
-                                val item = Item(cat_text.text.toString(), name_text.text.toString(), price_text.text.toString(), desc_text.text.toString(), url)
+                                val item = Item(cat_text.text.toString(), name_text.text.toString(), price_text.text.toString(), desc_text.text.toString(), url, poster)
                                 ref.child("${name_text.text.toString()}").setValue(item)
                                     .addOnFailureListener {
                                         Toast.makeText(this, "Pushing failed. ${it.message}", Toast.LENGTH_SHORT).show()
                                     }
                                     .addOnSuccessListener {
                                         Toast.makeText(this, "Pushed item successfully", Toast.LENGTH_SHORT).show()
-                                        d("IUTils", "name = ${name_text.text.toString()}, photo url = $url")
+                                        d("IUTils", "name = ${name_text.text.toString()}, photo url = $url, poster_name = $poster")
                                     }
                             }
                     }
@@ -124,7 +169,7 @@ class Sell : AppCompatActivity() {
 }
 
 
-class Item(val category: String, val name: String, val price: String, val description: String, val photourl: String)
+class Item(val category: String, val name: String, val price: String, val description: String, val photourl: String, val postername: String)
 {
-    constructor():this("", "", "", "", "")
+    constructor():this("", "", "", "", "", "")
 }

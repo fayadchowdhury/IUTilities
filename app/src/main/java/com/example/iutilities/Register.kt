@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_register.*
 
@@ -62,6 +63,11 @@ class Register : AppCompatActivity() {
                         .addOnFailureListener {
                             Toast.makeText(this, "${it.message}", Toast.LENGTH_SHORT).show()
                         }
+                    val username_update = UserProfileChangeRequest.Builder()
+                        .setDisplayName(username)
+                        .build()
+                    val fb_user = FirebaseAuth.getInstance().currentUser
+                    fb_user?.updateProfile(username_update)
                 }
                 .addOnFailureListener {
                     Toast.makeText(this, "User not created. ${it.message}", Toast.LENGTH_SHORT).show()

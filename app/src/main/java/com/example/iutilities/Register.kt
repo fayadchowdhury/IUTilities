@@ -33,8 +33,9 @@ class Register : AppCompatActivity() {
         val username = username_text.text.toString()
         val email = email_text.text.toString()
         val password = password_text.text.toString()
+        val contact = contact_text.text.toString()
 
-        if ( email.isEmpty() || password.isEmpty() || username.isEmpty() ) {
+        if ( email.isEmpty() || password.isEmpty() || username.isEmpty() || contact.isEmpty() ) {
             Toast.makeText(
                 this,
                 "Please enter username, email address and password before registering",
@@ -46,7 +47,7 @@ class Register : AppCompatActivity() {
                     Toast.makeText(this, "User created", Toast.LENGTH_SHORT).show()
                     val ref = FirebaseDatabase.getInstance().getReference("users")
                     val uid = FirebaseAuth.getInstance().uid
-                    val user = User(username, email, password)
+                    val user = User(username, email, password, contact)
                     ref.child("$uid").setValue(user)
                         .addOnSuccessListener {
                             Toast.makeText(this, "User added to database successfully", Toast.LENGTH_SHORT).show()
@@ -76,4 +77,4 @@ class Register : AppCompatActivity() {
     }
 }
 
-class User(val username: String, val email: String, val password: String)
+class User(val username: String, val email: String, val password: String, val contact: String)

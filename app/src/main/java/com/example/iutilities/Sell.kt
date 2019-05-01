@@ -138,8 +138,8 @@ class Sell : AppCompatActivity() {
                 {
                     d("IUTils", "Data not null")
                     itemImage.setImageBitmap(MediaStore.Images.Media.getBitmap(contentResolver, uri))
-                    sell_button_sell.setText("")
-                    sell_button_sell.alpha = 0f
+                    photoSelect.setText("")
+                    //sell_button_sell.alpha = 0f
                 }
                 else
                 {

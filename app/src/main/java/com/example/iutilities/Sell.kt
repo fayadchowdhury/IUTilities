@@ -114,6 +114,7 @@ class Sell : AppCompatActivity() {
                                     .addOnSuccessListener {
                                         Toast.makeText(this, "Pushed item successfully", Toast.LENGTH_SHORT).show()
                                         d("IUTils", "name = ${name_text.text.toString()}, photo url = $url, poster_name = $poster")
+                                        finish()
                                     }
                             }
                     }

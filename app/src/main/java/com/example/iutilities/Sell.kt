@@ -106,7 +106,7 @@ class Sell : AppCompatActivity() {
                                 url = it.toString()
                                 d("IUTils", "url within success listener = $url")
                                 val ref = FirebaseDatabase.getInstance().getReference("sell/${cat_text.text.toString()}")
-                                val item = Item(cat_text.text.toString(), name_text.text.toString(), price_text.text.toString(), desc_text.text.toString(), url, poster)
+                                val item = ItemObj(cat_text.text.toString(), name_text.text.toString(), price_text.text.toString(), desc_text.text.toString(), url, poster)
                                 ref.child("${name_text.text.toString()}").setValue(item)
                                     .addOnFailureListener {
                                         Toast.makeText(this, "Pushing failed. ${it.message}", Toast.LENGTH_SHORT).show()
@@ -167,10 +167,4 @@ class Sell : AppCompatActivity() {
             currentPhotoPath = absolutePath
         }
     }
-}
-
-
-class Item(val category: String, val name: String, val price: String, val description: String, val photourl: String, val postername: String)
-{
-    constructor():this("", "", "", "", "", "")
 }

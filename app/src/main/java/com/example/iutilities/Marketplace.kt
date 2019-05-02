@@ -11,10 +11,7 @@ class Marketplace : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_marketplace)
 
-        offer_button.setOnClickListener {
-            val intent = Intent(this, Buy::class.java)
-            startActivity(intent)
-        }
+
 
         sell_button_sell.setOnClickListener {
             val intent = Intent(this, Sell::class.java)

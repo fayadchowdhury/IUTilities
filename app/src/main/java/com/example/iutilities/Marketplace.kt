@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.*
+import com.squareup.picasso.Picasso
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.Item
 import com.xwray.groupie.ViewHolder
@@ -54,6 +55,7 @@ class itemholder(val item: ItemObj): Item<ViewHolder>()
     override fun bind(viewHolder: ViewHolder, position: Int) {
         viewHolder.itemView.itemName.setText("${item?.name.toString()}")
         viewHolder.itemView.itemPrice.setText("${item?.price.toString()}")
+        Picasso.get().load("${item?.photourl.toString()}").into(viewHolder.itemView.itemPic)
     }
 
     override fun getLayout(): Int {

@@ -7,7 +7,7 @@
 
     <ImageView
             android:layout_width="184dp"
-            android:layout_height="169dp" tools:srcCompat="@tools:sample/backgrounds/scenic"
+            android:layout_height="169dp"
             android:id="@+id/itemPic"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="0.012"

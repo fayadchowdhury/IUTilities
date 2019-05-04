@@ -4,6 +4,7 @@ import android.content.ClipData
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.*
 import com.squareup.picasso.Picasso
@@ -44,6 +45,13 @@ class Marketplace : AppCompatActivity() {
                     }
                 }
                 item_recyclerview.adapter = adapter
+
+                adapter.setOnItemClickListener { item, view ->
+                    val item_tmptmp = item as itemholder
+                    val intent = Intent(view.context, BuyItem::class.java)
+                    intent.putExtra("ITEM", item_tmptmp.item)
+                    startActivity(intent)
+                }
             }
         })
     }

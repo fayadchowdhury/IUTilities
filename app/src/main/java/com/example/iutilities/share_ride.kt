@@ -27,7 +27,7 @@ class share_ride : AppCompatActivity() {
             else
             {
                 val name = FirebaseAuth.getInstance(). currentUser?.displayName.toString()
-                val ride = RideObj(sharefrom.text.toString(), shareto.text.toString(), shareseat.text.toString(), sharetime.text.toString())
+                val ride = RideObj(sharefrom.text.toString(), shareto.text.toString(), shareseat.text.toString(), sharetime.text.toString(), name)
                 val rideref = FirebaseDatabase.getInstance().getReference("Rides")
                 rideref.child("${sharefrom.text.toString()} ${shareto.text.toString()}").setValue(ride)
                                     .addOnFailureListener {

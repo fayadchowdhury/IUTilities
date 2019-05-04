@@ -1,11 +1,13 @@
 package com.example.iutilities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
+import kotlinx.android.synthetic.main.activity_rides.*
 import kotlinx.android.synthetic.main.activity_sell.*
 import kotlinx.android.synthetic.main.activity_share_ride.*
 import kotlin.concurrent.timer
@@ -40,6 +42,12 @@ class share_ride : AppCompatActivity() {
 
 
             }
+
+        Back_Button.setOnClickListener {
+            val intent = Intent(this, Rides::class.java)
+            startActivity(intent)
+            finish()
+        }
         }
     }
 

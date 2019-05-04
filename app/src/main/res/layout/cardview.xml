@@ -17,6 +17,9 @@
             android:layout_width="199dp"
             android:layout_height="35dp"
             android:id="@+id/itemName"
+            android:textSize="30sp"
+            android:textAllCaps="true"
+            android:textColor="#F84242"
             app:layout_constraintTop_toTopOf="@+id/itemPic"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
             app:layout_constraintStart_toEndOf="@+id/itemPic" android:layout_marginLeft="8dp"
@@ -28,19 +31,9 @@
             android:layout_width="200dp"
             android:layout_height="36dp"
             android:id="@+id/itemPrice"
+            android:textColor="#000000"
             app:layout_constraintTop_toBottomOf="@+id/itemName" app:layout_constraintStart_toStartOf="@+id/itemName"
             app:layout_constraintEnd_toEndOf="@+id/itemName"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintVertical_bias="0.181"/>
-    <Button
-            android:text="Buy"
-            android:textColor="#FFFF"
-            android:background="#A73B3B"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/buy"
-            app:layout_constraintTop_toBottomOf="@+id/itemPrice"
-            app:layout_constraintStart_toStartOf="@+id/itemName"
-            app:layout_constraintEnd_toEndOf="@+id/itemName" app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.627"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -24,7 +24,8 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".BuyItem">
+        <activity android:name=".BuyItem"
+            android:theme="@style/SplashScreen">
         </activity>
         <activity android:name=".share_ride">
         </activity>
@@ -59,7 +60,9 @@
         </activity>
         <activity android:name=".LoginRegister">
         </activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:theme="@style/SplashScreen"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

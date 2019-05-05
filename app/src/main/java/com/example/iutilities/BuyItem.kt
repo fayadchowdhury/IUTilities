@@ -24,11 +24,11 @@ class BuyItem : AppCompatActivity() {
         }
         else
         {
-            name_text.setText("Name = ${item_tmptmp.name.toString()}")
-            price_text.setText("Price = ${item_tmptmp.price.toString()}")
-            cat_text.setText("Category = ${item_tmptmp.category.toString()}")
-            desc_text.setText("Description = ${item_tmptmp.description.toString()}")
-            posterName.setText("Posted by = ${item_tmptmp.postername.toString()}")
+            name_text.setText(" ${item_tmptmp.name.toString()}")
+            price_text.setText("BDT  ${item_tmptmp.price.toString()}")
+            cat_text.setText("Category : ${item_tmptmp.category.toString()}")
+            desc_text.setText(" ${item_tmptmp.description.toString()}")
+            posterName.setText("Posted by  ${item_tmptmp.postername.toString()}")
             Picasso.get().load("${item_tmptmp.photourl.toString()}").into(itemImage)
         }
     }

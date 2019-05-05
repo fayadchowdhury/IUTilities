@@ -6,6 +6,27 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".share_ride">
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+
+        android:id="@+id/Back_Button"
+        android:layout_width="42dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="64dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.022"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.912"
+        app:srcCompat="@drawable/gmailbutton" />
+
     <Button
             android:text="To"
             android:layout_width="wrap_content"

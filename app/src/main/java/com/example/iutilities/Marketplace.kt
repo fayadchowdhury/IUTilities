@@ -25,13 +25,13 @@ class Marketplace : AppCompatActivity() {
             startActivity(intent)
         }
 
-        fetchitems("Tech")
+        fetchitems()
     }
 
-    private fun fetchitems(category: String)
+    private fun fetchitems()
     {
         val adapter = GroupAdapter<ViewHolder>()
-        val ref = FirebaseDatabase.getInstance().getReference("/sell/${category.toString()}")
+        val ref = FirebaseDatabase.getInstance().getReference("/sell")
         ref.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
             }

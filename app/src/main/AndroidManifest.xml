@@ -42,8 +42,6 @@
                     android:resource="@xml/file_paths"/>
         </provider>
 
-        <activity android:name=".Buy">
-        </activity>
         <activity android:name=".Sell">
         </activity>
         <activity android:name=".Tuitions">

@@ -1,7 +1,7 @@
 package com.example.iutilities
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log.d
 import com.google.firebase.auth.FirebaseAuth
@@ -43,6 +43,11 @@ class Profile : AppCompatActivity() {
 
         rides_button.setOnClickListener {
             val intent = Intent(this, Rides::class.java)
+            startActivity(intent)
+        }
+
+        profile_button.setOnClickListener {
+            val intent = Intent(this, MyProfile::class.java)
             startActivity(intent)
         }
     }

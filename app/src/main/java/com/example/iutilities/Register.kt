@@ -1,7 +1,7 @@
 package com.example.iutilities
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
@@ -77,4 +77,3 @@ class Register : AppCompatActivity() {
     }
 }
 
-class User(val username: String, val email: String, val password: String, val contact: String)

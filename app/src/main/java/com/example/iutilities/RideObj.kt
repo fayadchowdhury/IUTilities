@@ -1,8 +1,11 @@
 package com.example.iutilities
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
 import java.sql.Time
 
-class RideObj (val From: String, val To: String, val Available_Seats: String, val Time: String, val Name: String)
+@Parcelize
+class RideObj (val from: String, val to: String, val available_Seats: String, val time: String, val name: String, val phone_Number: String): Parcelable
 {
-    constructor():this("", "", "", "", "")
+    constructor():this("", "", "", "", "", "")
 }

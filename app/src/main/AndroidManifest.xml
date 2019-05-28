@@ -27,6 +27,7 @@
         <activity android:name=".OrderFood"></activity>
         <activity android:name=".BuyFood" />
         <activity android:name=".FoodCourt" />
+        <activity android:name=".RideDetails"></activity>
         <activity android:name=".MyProfile" />
         <activity
             android:name=".BuyItem"

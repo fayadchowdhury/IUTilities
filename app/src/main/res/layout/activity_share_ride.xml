@@ -7,28 +7,56 @@
         android:layout_height="match_parent"
         tools:context=".share_ride">
 
-    <EditText android:layout_width="match_parent" android:layout_height="wrap_content"
-              android:id="@+id/shareto"
-              app:layout_constraintBottom_toBottomOf="parent" android:layout_marginTop="8dp"
-              app:layout_constraintTop_toTopOf="parent" tools:layout_editor_absoluteX="0dp"
-              app:layout_constraintVertical_bias="0.3"/>
+    <EditText
+        android:id="@+id/sharephone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/share_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.886" />
+
+    <EditText
+        android:id="@+id/shareto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.258"
+        tools:layout_editor_absoluteX="0dp" />
     <EditText android:layout_width="match_parent" android:layout_height="wrap_content"
               android:id="@+id/sharefrom"
               app:layout_constraintBottom_toBottomOf="parent" android:layout_marginTop="8dp"
               app:layout_constraintTop_toTopOf="parent" tools:layout_editor_absoluteX="0dp"
               app:layout_constraintVertical_bias="0.075"/>
-    <EditText android:layout_width="match_parent" android:layout_height="wrap_content"
-              app:layout_constraintTop_toTopOf="parent"
-              app:layout_constraintEnd_toEndOf="parent"
-              app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="@+id/share_button"
-              android:layout_marginBottom="8dp" app:layout_constraintHorizontal_bias="1.0"
-              app:layout_constraintVertical_bias="0.561" android:id="@+id/shareseat"/>
-    <EditText android:layout_width="match_parent" android:layout_height="wrap_content"
-              app:layout_constraintTop_toTopOf="parent"
-              app:layout_constraintEnd_toEndOf="parent"
-              app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="@+id/share_button"
-              android:layout_marginBottom="8dp" app:layout_constraintHorizontal_bias="0.0"
-              app:layout_constraintVertical_bias="0.768" android:id="@+id/sharetime"/>
+
+    <EditText
+        android:id="@+id/shareseat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/share_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.475" />
+
+    <EditText
+        android:id="@+id/sharetime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/share_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.654" />
 
     <Button
             android:text="Share the ride"

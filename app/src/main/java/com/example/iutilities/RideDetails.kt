@@ -14,7 +14,6 @@ class RideDetails : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ride_details)
 
-        // var _tmp: String = ""
         val ride_temp2 = intent.getParcelableExtra<RideObj>("RIDE")
         if (ride_temp2 == null) {
             Log.d("IUTils", "Error retrieving parcelable object")
@@ -25,8 +24,8 @@ class RideDetails : AppCompatActivity() {
             detailsseat.setText("Available Seats: ${ride_temp2.available_Seats.toString()}")
             detailstime.setText("Time Range: ${ride_temp2.time.toString()}")
             detailsphone.setText("Phone Number:  ${ride_temp2.phone_Number.toString()}")
-            // postername_tmp = item_tmptmp.postername.toString()
-            // Picasso.get().load("${item_tmptmp.photourl.toString()}").into(itemImage)
+            detailsname.setText("Name: ${ride_temp2.name.toString()}")
+
         }
     }
 }

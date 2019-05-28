@@ -11,14 +11,14 @@
         android:id="@+id/detailsphone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="416dp"
+        android:layout_marginTop="418dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.148" />
+        app:layout_constraintVertical_bias="0.057" />
 
     <EditText
         android:id="@+id/detailsto"
@@ -59,5 +59,16 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/detailsseat" />
+
+    <TextView
+        android:id="@+id/detailsname"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/detailsphone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detailsphone"
+        app:layout_constraintVertical_bias="0.06" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

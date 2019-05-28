@@ -2,7 +2,7 @@ package com.example.iutilities
 
 import java.sql.Time
 
-class RideObj (val From: String, val To: String, val Available_Seats: String, val Time: String, val Name: String)
+class RideObj (val From: String, val To: String, val Available_Seats: String, val Time: String, val Name: String, val Phone_Number: String)
 {
-    constructor():this("", "", "", "", "")
+    constructor():this("", "", "", "", "", "")
 }

@@ -24,11 +24,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MyProfile"></activity>
+        <activity android:name=".OrderFood"></activity>
+        <activity android:name=".BuyFood" />
+        <activity android:name=".FoodCourt" />
+        <activity android:name=".MyProfile" />
         <activity
             android:name=".BuyItem"
-            android:theme="@style/SplashScreen"></activity>
-        <activity android:name=".share_ride"></activity>
+            android:theme="@style/SplashScreen" />
+        <activity android:name=".share_ride" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -40,14 +43,14 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
-        <activity android:name=".Sell"></activity>
-        <activity android:name=".Tuitions"></activity>
-        <activity android:name=".Rides"></activity>
-        <activity android:name=".Marketplace"></activity>
-        <activity android:name=".Profile"></activity>
-        <activity android:name=".Register"></activity>
-        <activity android:name=".SignIn"></activity>
-        <activity android:name=".LoginRegister"></activity>
+        <activity android:name=".Sell" />
+        <activity android:name=".Tuitions" />
+        <activity android:name=".Rides" />
+        <activity android:name=".Marketplace" />
+        <activity android:name=".Profile" />
+        <activity android:name=".Register" />
+        <activity android:name=".SignIn" />
+        <activity android:name=".LoginRegister" />
         <activity
             android:name=".MainActivity"
             android:theme="@style/SplashScreen">

@@ -42,12 +42,6 @@ class share_ride : AppCompatActivity() {
 
 
             }
-
-        Back_Button.setOnClickListener {
-            val intent = Intent(this, Rides::class.java)
-            startActivity(intent)
-            finish()
-        }
         }
     }
 

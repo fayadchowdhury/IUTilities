@@ -14,7 +14,6 @@ class Rides : AppCompatActivity() {
         Navigation_Button.setOnClickListener {
             val intent = Intent(this, share_ride::class.java)
             startActivity(intent)
-            finish()
         }
     }
 

@@ -45,5 +45,10 @@ class Profile : AppCompatActivity() {
             val intent = Intent(this, Rides::class.java)
             startActivity(intent)
         }
+
+        profile_button.setOnClickListener {
+            val intent = Intent(this, MyProfile::class.java)
+            startActivity(intent)
+        }
     }
 }

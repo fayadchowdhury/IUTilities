@@ -51,6 +51,9 @@
 
         <activity android:name=".Sell" />
         <activity android:name=".Tuitions" />
+        <activity android:name=".Tuition_Offer" />
+        <activity android:name=".TuitionsDetailed" />
+        <activity android:name=".TuitionsPlaced" />
         <activity android:name=".Rides" />
         <activity android:name=".Marketplace" />
         <activity android:name=".Profile" />

@@ -50,5 +50,10 @@ class Profile : AppCompatActivity() {
             val intent = Intent(this, MyProfile::class.java)
             startActivity(intent)
         }
+
+        food_access.setOnClickListener {
+            val intent = Intent (this, FoodCourt::class.java)
+            startActivity(intent)
+        }
     }
 }

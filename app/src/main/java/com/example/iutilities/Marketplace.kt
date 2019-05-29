@@ -7,6 +7,7 @@ import com.google.firebase.database.*
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.ViewHolder
 import kotlinx.android.synthetic.main.activity_marketplace.*
+import kotlinx.android.synthetic.main.activity_marketplace.Refresh__
 
 class Marketplace : AppCompatActivity() {
 
@@ -16,6 +17,26 @@ class Marketplace : AppCompatActivity() {
 
         sell_button_sell.setOnClickListener {
             val intent = Intent(this, Sell::class.java)
+            startActivity(intent)
+        }
+
+        B_marketPlace.setOnClickListener {
+            val intent = Intent (this, Marketplace::class.java)
+            startActivity(intent)
+        }
+
+        B_ride.setOnClickListener {
+            val intent = Intent (this, Rides::class.java)
+            startActivity(intent)
+        }
+
+        B_tutions.setOnClickListener {
+            val intent = Intent (this, Tuitions::class.java)
+            startActivity(intent)
+        }
+
+        Refresh__.setOnClickListener {
+            val intent = Intent (this, FoodCourt::class.java)
             startActivity(intent)
         }
 

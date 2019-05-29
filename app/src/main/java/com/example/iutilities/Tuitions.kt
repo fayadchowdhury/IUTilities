@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log.d
-import android.widget.Toast
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -21,6 +20,26 @@ class Tuitions : AppCompatActivity() {
 
         Navigation_Button.setOnClickListener {
             val intent = Intent(this, Tuition_Offer::class.java)
+            startActivity(intent)
+        }
+
+        button.setOnClickListener {
+            val intent = Intent (this, Marketplace::class.java)
+            startActivity(intent)
+        }
+
+        button2.setOnClickListener {
+            val intent = Intent (this, Rides::class.java)
+            startActivity(intent)
+        }
+
+        button3.setOnClickListener {
+            val intent = Intent (this, Tuitions::class.java)
+            startActivity(intent)
+        }
+
+        Refresh__.setOnClickListener {
+            val intent = Intent (this, FoodCourt::class.java)
             startActivity(intent)
         }
 

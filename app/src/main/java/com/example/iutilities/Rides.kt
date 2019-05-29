@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log.d
-import android.widget.Toast
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -12,6 +11,11 @@ import com.google.firebase.database.ValueEventListener
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.ViewHolder
 import kotlinx.android.synthetic.main.activity_rides.*
+import kotlinx.android.synthetic.main.activity_rides.Navigation_Button
+import kotlinx.android.synthetic.main.activity_rides.button
+import kotlinx.android.synthetic.main.activity_rides.button2
+import kotlinx.android.synthetic.main.activity_rides.button3
+import kotlinx.android.synthetic.main.activity_rides.Refresh__
 
 class Rides : AppCompatActivity() {
 
@@ -21,6 +25,26 @@ class Rides : AppCompatActivity() {
 
         Navigation_Button.setOnClickListener {
             val intent = Intent(this, share_ride::class.java)
+            startActivity(intent)
+        }
+
+        button.setOnClickListener {
+            val intent = Intent (this, Marketplace::class.java)
+            startActivity(intent)
+        }
+
+        button2.setOnClickListener {
+            val intent = Intent (this, Rides::class.java)
+            startActivity(intent)
+        }
+
+        button3.setOnClickListener {
+            val intent = Intent (this, Tuitions::class.java)
+            startActivity(intent)
+        }
+
+        Refresh__.setOnClickListener {
+            val intent = Intent (this, FoodCourt::class.java)
             startActivity(intent)
         }
 

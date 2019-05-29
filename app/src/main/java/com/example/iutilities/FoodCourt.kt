@@ -1,18 +1,14 @@
 package com.example.iutilities
 
 import android.content.Intent
-import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.ViewHolder
-import kotlinx.android.synthetic.main.activity_marketplace.*
-import kotlinx.android.synthetic.main.activity_profile.*
 import kotlinx.android.synthetic.main.food_court.*
 import kotlinx.android.synthetic.main.food_court.B_marketPlace
 import kotlinx.android.synthetic.main.food_court.B_ride
@@ -40,10 +36,17 @@ class FoodCourt : AppCompatActivity() {
             startActivity(intent)
         }
 
+        Refresh__.setOnClickListener {
+            val intent = Intent (this, FoodCourt::class.java)
+            startActivity(intent)
+        }
+
         order_button.setOnClickListener {
             val intent = Intent (this, OrderFood::class.java)
             startActivity(intent)
         }
+
+
 
         fetchfoods()
     }

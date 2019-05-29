@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -29,8 +30,6 @@
             app:layout_constraintVertical_bias="0.114" />
 
         <TextView
-            android:textSize="20sp"
-            android:textColor="#000"
             android:id="@+id/name_text"
             android:layout_width="350dp"
             android:layout_height="50dp"
@@ -41,6 +40,8 @@
             android:layout_marginRight="8dp"
             android:ems="10"
             android:hint="Name"
+            android:textColor="#000"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.488"
             app:layout_constraintStart_toStartOf="parent"
@@ -63,25 +64,6 @@
             app:layout_constraintHorizontal_bias="0.578"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/name_text" />
-
-        <TextView
-            android:textColor="#000"
-            android:id="@+id/cat_text"
-            android:layout_width="200dp"
-            android:layout_height="39dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:ems="10"
-            android:gravity="center_vertical"
-            android:inputType="textPersonName"
-            android:text="Category"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.041"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/desc_text" />
 
         <TextView
             android:id="@+id/price_text"
@@ -108,32 +90,32 @@
             app:layout_constraintVertical_bias="0.391" />
 
         <TextView
-            android:textColor="#000"
             android:id="@+id/posterName"
             android:layout_width="238dp"
             android:layout_height="35dp"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="108dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:text="Posted by"
+            android:textColor="#000"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.05"
+            app:layout_constraintHorizontal_bias="0.191"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cat_text" />
+            app:layout_constraintTop_toBottomOf="@+id/desc_text" />
 
         <Button
-            android:foreground="?android:attr/selectableItemBackground"
-            android:clickable="true"
-            android:textColor="#fff"
-            android:background="@drawable/contact_sell"
             android:id="@+id/contact_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
+            android:background="@drawable/contact_sell"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
             android:text="Contact "
+            android:textColor="#fff"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/price_text"
             app:layout_constraintHorizontal_bias="0.502"

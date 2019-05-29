@@ -53,14 +53,9 @@ class Rides : AppCompatActivity() {
                     ride_adapter.setOnItemClickListener { ride, view->
 
                         val ride_temp2 = ride as rideHolder
-                        if ( ride_temp2 != null )
-                        {val intent = Intent(view.context, RideDetails::class.java)
+                        val intent = Intent(view.context, RideDetails::class.java)
                         intent.putExtra("RIDE", ride_temp2.ride)
-                        startActivity(intent)}
-                        else
-                        {
-                            d("IUTils", "ride_temp2 object is null")
-                        }
+                        startActivity(intent)
                     }
                     }
                 }

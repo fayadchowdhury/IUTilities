@@ -23,6 +23,7 @@ class Marketplace : AppCompatActivity() {
         B_marketPlace.setOnClickListener {
             val intent = Intent (this, Marketplace::class.java)
             startActivity(intent)
+            finish()
         }
 
         B_ride.setOnClickListener {

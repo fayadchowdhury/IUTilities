@@ -36,6 +36,7 @@ class Rides : AppCompatActivity() {
         button2.setOnClickListener {
             val intent = Intent (this, Rides::class.java)
             startActivity(intent)
+            finish()
         }
 
         button3.setOnClickListener {

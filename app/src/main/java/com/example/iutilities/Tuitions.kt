@@ -36,6 +36,7 @@ class Tuitions : AppCompatActivity() {
         button3.setOnClickListener {
             val intent = Intent (this, Tuitions::class.java)
             startActivity(intent)
+            finish()
         }
 
         Refresh__.setOnClickListener {
@@ -57,10 +58,9 @@ class Tuitions : AppCompatActivity() {
             }
 
             override fun onDataChange(p0: DataSnapshot) {
-                p0.children.forEach{
+                p0.children.forEach {
                     val offer_temp = it.getValue(TuitionObj::class.java)
-                    if ( offer_temp != null )
-                    {
+                    if (offer_temp != null) {
                         tuition_adapter.add(TuitionsPlaced(offer_temp))
                         d("IUTils", "fetched offer item and added into adapter")
                         //Toast.makeText(this, "fetched ride item and added into adapter", Toast.LENGTH_SHORT).show()
@@ -69,18 +69,13 @@ class Tuitions : AppCompatActivity() {
                     d("IUTils", "Adapter set")
                     //Toast.makeText(this, "Adapter set", Toast.LENGTH_SHORT).show()
 
-                    tuition_adapter.setOnItemClickListener { offer, view->
-
+                    tuition_adapter.setOnItemClickListener { offer, view ->
                         val offer_temp2 = offer as TuitionsPlaced
-                        if ( offer_temp2 != null )
-                        {val intent = Intent(view.context, TuitionsDetailed::class.java)
-                            intent.putExtra("Offer", offer_temp2.offer)
-                            startActivity(intent)}
-                        else
-                        {
-                            d("IUTils", "offer_temp2 object is null")
-                        }
+                        val intent = Intent(view.context, TuitionsDetailed::class.java)
+                        intent.putExtra("Offer", offer_temp2.offer)
+                        startActivity(intent)
                     }
+
                 }
             }
         })

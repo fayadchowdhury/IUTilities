@@ -39,6 +39,7 @@ class FoodCourt : AppCompatActivity() {
         Refresh__.setOnClickListener {
             val intent = Intent (this, FoodCourt::class.java)
             startActivity(intent)
+            finish()
         }
 
         order_button.setOnClickListener {

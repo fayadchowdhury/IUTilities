@@ -2,7 +2,7 @@ package com.example.iutilities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log.d
+import android.util.Log
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -12,30 +12,32 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_buy_item.*
+import kotlinx.android.synthetic.main.activity_ride_details.*
 
-class BuyItem : AppCompatActivity() {
+class RideDetails : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_buy_item)
+        setContentView(R.layout.activity_ride_details)
 
         var postername_tmp: String = ""
-        val item_tmptmp = intent.getParcelableExtra<ItemObj>("ITEM")
-        if ( item_tmptmp == null )
-        {
-            d("IUTils", "Error retrieving parcelable object")
+
+        val ride_temp2 = intent.getParcelableExtra<RideObj>("RIDE")
+        if (ride_temp2 == null) {
+            Log.d("IUTils", "Error retrieving parcelable object")
+            Toast.makeText(this, "ERROR RECEIVING PARCELABLE OBJECT", Toast.LENGTH_SHORT).show()
+        } else {
+            detailsfrom.setText("From: ${ride_temp2.from.toString()}")
+            detailsto.setText("To:  ${ride_temp2.to.toString()}")
+            detailsseat.setText("Available Seats: ${ride_temp2.available_Seats.toString()}")
+            detailstime.setText("Time Range: ${ride_temp2.time.toString()}")
+            detailsphone.setText("Phone Number:  ${ride_temp2.phone_Number.toString()}")
+            detailsname.setText("Name: ${ride_temp2.name.toString()}")
+            postername_tmp = ride_temp2.name.toString()
+
         }
-        else
-        {
-            name_text.setText(" ${item_tmptmp.name.toString()}")
-            price_text.setText("BDT  ${item_tmptmp.price.toString()}")
-            cat_text.setText("Category : ${item_tmptmp.category.toString()}")
-            desc_text.setText(" ${item_tmptmp.description.toString()}")
-            posterName.setText("Posted by  ${item_tmptmp.postername.toString()}")
-            postername_tmp = item_tmptmp.postername.toString()
-            Picasso.get().load("${item_tmptmp.photourl.toString()}").into(itemImage)
-        }
-        contact_button.setOnClickListener {
+
+        contact_button3.setOnClickListener {
             Toast.makeText(this, "Contact button clicked", Toast.LENGTH_SHORT).show()
             val dialog = AlertDialog.Builder(this)
             val dialogview = layoutInflater.inflate(R.layout.contact_dialog, null)

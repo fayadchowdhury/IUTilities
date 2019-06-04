@@ -1,18 +1,13 @@
 package com.example.iutilities
 
-import android.content.ClipData
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.core.content.ContextCompat.startActivity
-import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.*
-import com.squareup.picasso.Picasso
 import com.xwray.groupie.GroupAdapter
-import com.xwray.groupie.Item
 import com.xwray.groupie.ViewHolder
 import kotlinx.android.synthetic.main.activity_marketplace.*
-import kotlinx.android.synthetic.main.cardview.view.*
+import kotlinx.android.synthetic.main.activity_marketplace.Refresh__
 
 class Marketplace : AppCompatActivity() {
 
@@ -25,13 +20,34 @@ class Marketplace : AppCompatActivity() {
             startActivity(intent)
         }
 
-        fetchitems("Tech")
+        B_marketPlace.setOnClickListener {
+            val intent = Intent (this, Marketplace::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        B_ride.setOnClickListener {
+            val intent = Intent (this, Rides::class.java)
+            startActivity(intent)
+        }
+
+        B_tutions.setOnClickListener {
+            val intent = Intent (this, Tuitions::class.java)
+            startActivity(intent)
+        }
+
+        Refresh__.setOnClickListener {
+            val intent = Intent (this, FoodCourt::class.java)
+            startActivity(intent)
+        }
+
+        fetchitems()
     }
 
-    private fun fetchitems(category: String)
+    private fun fetchitems()
     {
         val adapter = GroupAdapter<ViewHolder>()
-        val ref = FirebaseDatabase.getInstance().getReference("/sell/${category.toString()}")
+        val ref = FirebaseDatabase.getInstance().getReference("/sell")
         ref.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
             }
@@ -57,17 +73,3 @@ class Marketplace : AppCompatActivity() {
     }
 
 }
-
-class itemholder(val item: ItemObj): Item<ViewHolder>()
-{
-    override fun bind(viewHolder: ViewHolder, position: Int) {
-        viewHolder.itemView.itemName.setText("${item?.name.toString()}")
-        viewHolder.itemView.itemPrice.setText("${item?.price.toString()}")
-        Picasso.get().load("${item?.photourl.toString()}").into(viewHolder.itemView.itemPic)
-    }
-
-    override fun getLayout(): Int {
-        return R.layout.cardview
-    }
-}
-

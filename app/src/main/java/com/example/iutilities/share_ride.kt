@@ -19,7 +19,7 @@ class share_ride : AppCompatActivity() {
         setContentView(R.layout.activity_share_ride)
 
         share_button.setOnClickListener {
-            if(sharefrom.text == null || shareto.text == null || shareseat.text == null || sharetime.text == null)
+            if(sharefrom.text == null || shareto.text == null || shareseat.text == null || sharetime.text == null || sharephone.text == null)
             {
                 Toast.makeText(this, "Please enter the required text field", Toast.LENGTH_SHORT).show()
             }
@@ -27,7 +27,7 @@ class share_ride : AppCompatActivity() {
             else
             {
                 val name = FirebaseAuth.getInstance(). currentUser?.displayName.toString()
-                val ride = RideObj(sharefrom.text.toString(), shareto.text.toString(), shareseat.text.toString(), sharetime.text.toString(), name)
+                val ride = RideObj(sharefrom.text.toString(), shareto.text.toString(), shareseat.text.toString(), sharetime.text.toString(), name, sharephone.text.toString())
                 val rideref = FirebaseDatabase.getInstance().getReference("Rides")
                 rideref.child("${sharefrom.text.toString()} ${shareto.text.toString()}").setValue(ride)
                                     .addOnFailureListener {
@@ -42,12 +42,6 @@ class share_ride : AppCompatActivity() {
 
 
             }
-
-        Back_Button.setOnClickListener {
-            val intent = Intent(this, Rides::class.java)
-            startActivity(intent)
-            finish()
-        }
         }
     }
 

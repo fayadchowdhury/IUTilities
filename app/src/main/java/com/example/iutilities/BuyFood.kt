@@ -2,7 +2,7 @@ package com.example.iutilities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log.d
+import android.util.Log
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -13,29 +13,27 @@ import com.google.firebase.database.ValueEventListener
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_buy_item.*
 
-class BuyItem : AppCompatActivity() {
+class BuyFood : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_buy_item)
+        setContentView(R.layout.buy_food)
+
 
         var postername_tmp: String = ""
-        val item_tmptmp = intent.getParcelableExtra<ItemObj>("ITEM")
-        if ( item_tmptmp == null )
-        {
-            d("IUTils", "Error retrieving parcelable object")
+        val food_tmptmp = intent.getParcelableExtra<FoodObj>("FOOD")
+        if ( food_tmptmp == null ) {
+            Log.d("IUTils", "Error retrieving parcelable object")
+        } else {
+            price_text.setText("Cost ${food_tmptmp.cost.toString()}")
+           // price_text.setText("BDT  ${item_tmptmp.price.toString()}")
+            name_text.setText("Restaurant name\n ${food_tmptmp.restname.toString()}")
+            desc_text.setText("Description of food\n ${food_tmptmp.description.toString()}")
+            posterName.setText("Posted by ${food_tmptmp.orderername.toString()}")
+            postername_tmp = food_tmptmp.orderername.toString()
+            //Picasso.get().load("${item_tmptmp.photourl.toString()}").into(itemImage)
         }
-        else
-        {
-            name_text.setText(" ${item_tmptmp.name.toString()}")
-            price_text.setText("BDT  ${item_tmptmp.price.toString()}")
-            cat_text.setText("Category : ${item_tmptmp.category.toString()}")
-            desc_text.setText(" ${item_tmptmp.description.toString()}")
-            posterName.setText("Posted by  ${item_tmptmp.postername.toString()}")
-            postername_tmp = item_tmptmp.postername.toString()
-            Picasso.get().load("${item_tmptmp.photourl.toString()}").into(itemImage)
-        }
-        contact_button.setOnClickListener {
+       contact_button.setOnClickListener {
             Toast.makeText(this, "Contact button clicked", Toast.LENGTH_SHORT).show()
             val dialog = AlertDialog.Builder(this)
             val dialogview = layoutInflater.inflate(R.layout.contact_dialog, null)
@@ -63,6 +61,7 @@ class BuyItem : AppCompatActivity() {
             dialog.setCancelable(true)
             val contactdialog = dialog.create()
             contactdialog.show()
-        }
+       }
+
     }
 }

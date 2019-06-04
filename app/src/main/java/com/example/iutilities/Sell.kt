@@ -98,14 +98,14 @@ class Sell : AppCompatActivity() {
             else
             {
                 val poster = FirebaseAuth.getInstance().currentUser?.displayName.toString()
-                val storef = FirebaseStorage.getInstance().getReference("/sellphotos/${cat_text.text.toString()}/${name_text.text.toString()}")
+                val storef = FirebaseStorage.getInstance().getReference("/sellphotos/${name_text.text.toString()}")
                 storef.putFile(uri!!)
                     .addOnSuccessListener {
                         storef.downloadUrl
                             .addOnSuccessListener {
                                 url = it.toString()
                                 d("IUTils", "url within success listener = $url")
-                                val ref = FirebaseDatabase.getInstance().getReference("sell/${cat_text.text.toString()}")
+                                val ref = FirebaseDatabase.getInstance().getReference("sell")
                                 val item = ItemObj(cat_text.text.toString(), name_text.text.toString(), price_text.text.toString(), desc_text.text.toString(), url, poster)
                                 ref.child("${name_text.text.toString()}").setValue(item)
                                     .addOnFailureListener {

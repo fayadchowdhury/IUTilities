@@ -3,25 +3,58 @@ package com.example.iutilities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.View
+import android.widget.Button
 import android.widget.Toast
+import com.facebook.CallbackManager
+import com.facebook.FacebookCallback
+import com.facebook.FacebookException
+import com.facebook.login.LoginManager
+import com.facebook.login.LoginResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_register.*
+import kotlinx.android.synthetic.main.activity_register.email_text
+import kotlinx.android.synthetic.main.activity_register.gmail_login
+import kotlinx.android.synthetic.main.activity_register.password_text
+import kotlinx.android.synthetic.main.activity_register.register_button
+import kotlinx.android.synthetic.main.activity_sign_in.*
+import java.util.*
 
 class Register : AppCompatActivity() {
-
+    private var callbackManager: CallbackManager? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
+        var loginFacebook= findViewById<Button>(R.id.login_button)
+        loginFacebook.setOnClickListener(View.OnClickListener {
+            callbackManager =CallbackManager.Factory.create()
+            LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("public_profile", "email"))
+            LoginManager.getInstance().registerCallback(callbackManager,
+                object : FacebookCallback<LoginResult> {
+                    override fun onSuccess(loginResult: LoginResult) {
+                        Log.d("MainActivity", "Facebook token: " + loginResult.accessToken.token)
+                        startActivity(Intent(applicationContext, Profile::class.java))
+                    }
 
+                    override fun onCancel() {
+                        Log.d("MainActivity", "Facebook onCancel.")
+
+                    }
+
+                    override fun onError(error: FacebookException) {
+                        Log.d("MainActivity", "Facebook onError.")
+
+                    }
+                })
+        })
         register_button.setOnClickListener {
             registerUser()
         }
 
-        facebook_login.setOnClickListener {
-            Toast.makeText(this, "This is a WIP", Toast.LENGTH_SHORT).show()
-        }
+
 
         gmail_login.setOnClickListener {
             Toast.makeText(this, "This is a WIP", Toast.LENGTH_SHORT).show()

@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">IUTilities</string>
+    <string name="facebook_app_id">658700481208683</string>
+    <string name="fb_login_protocol_scheme">fb658700481208683</string>
+
 </resources>

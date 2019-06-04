@@ -9,16 +9,18 @@
         tools:context=".Profile">
 
     <Button
-            android:text="Sign Out"
+        android:id="@+id/sign_out_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="@drawable/contact_sell"
+        android:text="Sign Out"
         android:textColor="#FFFF"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/sign_out_button"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.973" app:layout_constraintVertical_bias="0.011"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.91"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.046" />
 
     <Button
         android:id="@+id/tuitions_button"
@@ -62,18 +64,18 @@
         app:layout_constraintVertical_bias="0.088" />
 
     <Button
-        android:background="@drawable/contact_sell"
         android:id="@+id/profile_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/contact_sell"
         android:text="My Profile"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.026"
+        app:layout_constraintHorizontal_bias="0.089"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.011" />
+        app:layout_constraintVertical_bias="0.046" />
 
     <Button
         android:id="@+id/food_access"

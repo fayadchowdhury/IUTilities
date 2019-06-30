@@ -7,7 +7,6 @@ import com.google.firebase.database.*
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.ViewHolder
 import kotlinx.android.synthetic.main.activity_marketplace.*
-import kotlinx.android.synthetic.main.activity_marketplace.Refresh__
 
 class Marketplace : AppCompatActivity() {
 
@@ -36,7 +35,7 @@ class Marketplace : AppCompatActivity() {
             startActivity(intent)
         }
 
-        Refresh__.setOnClickListener {
+        B_foods.setOnClickListener {
             val intent = Intent (this, FoodCourt::class.java)
             startActivity(intent)
         }

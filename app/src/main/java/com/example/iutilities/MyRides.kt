@@ -22,12 +22,11 @@ class MyRides : AppCompatActivity() {
         }
         else
         {
-            detailsfrom.setText("From: ${ride_temp2.from.toString()}")
-            detailsto.setText("To:  ${ride_temp2.to.toString()}")
-            detailsseat.setText("Available Seats: ${ride_temp2.available_Seats.toString()}")
-            detailstime.setText("Time Range: ${ride_temp2.time.toString()}")
-            detailsphone.setText("Phone Number:  ${ride_temp2.phone_Number.toString()}")
-            detailsname.setText("Name: ${ride_temp2.name.toString()}")
+            detailsfrom.setText("From ${ride_temp2.from.toString()}")
+            detailsto.setText("To ${ride_temp2.to.toString()}")
+            detailsseat.setText("${ride_temp2.available_Seats.toString()} seat(s)")
+            detailstime.setText("${ride_temp2.time.toString()}")
+            detailsname.setText("Courtesy of ${ride_temp2.name.toString()}")
             postername_tmp = ride_temp2.name.toString()
 
         }

@@ -25,11 +25,11 @@ class BuyFood : AppCompatActivity() {
         if ( food_tmptmp == null ) {
             Log.d("IUTils", "Error retrieving parcelable object")
         } else {
-            price_text.setText("Cost ${food_tmptmp.cost.toString()}")
-           // price_text.setText("BDT  ${item_tmptmp.price.toString()}")
-            name_text.setText("Restaurant name\n ${food_tmptmp.restname.toString()}")
-            desc_text.setText("Description of food\n ${food_tmptmp.description.toString()}")
-            posterName.setText("Posted by ${food_tmptmp.orderername.toString()}")
+            price_text.setText("Estimated to cost around ${food_tmptmp.cost.toString()}")
+            // price_text.setText("BDT  ${item_tmptmp.price.toString()}")
+            name_text.setText("From ${food_tmptmp.restname.toString()}")
+            desc_text.setText("The order:\n ${food_tmptmp.description.toString()}")
+            posterName.setText("Requested by ${food_tmptmp.orderername.toString()}")
             postername_tmp = food_tmptmp.orderername.toString()
             //Picasso.get().load("${item_tmptmp.photourl.toString()}").into(itemImage)
         }

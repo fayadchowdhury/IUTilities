@@ -18,28 +18,28 @@ class Tuitions : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tuitions)
 
-        Navigation_Button.setOnClickListener {
+        tuition_offer_button.setOnClickListener {
             val intent = Intent(this, Tuition_Offer::class.java)
             startActivity(intent)
         }
 
-        button.setOnClickListener {
+        B_marketPlace.setOnClickListener {
             val intent = Intent (this, Marketplace::class.java)
             startActivity(intent)
         }
 
-        button2.setOnClickListener {
+        B_ride.setOnClickListener {
             val intent = Intent (this, Rides::class.java)
             startActivity(intent)
         }
 
-        button3.setOnClickListener {
+        B_tutions.setOnClickListener {
             val intent = Intent (this, Tuitions::class.java)
             startActivity(intent)
             finish()
         }
 
-        Refresh__.setOnClickListener {
+        B_foods.setOnClickListener {
             val intent = Intent (this, FoodCourt::class.java)
             startActivity(intent)
         }

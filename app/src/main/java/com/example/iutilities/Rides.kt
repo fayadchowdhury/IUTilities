@@ -11,11 +11,6 @@ import com.google.firebase.database.ValueEventListener
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.ViewHolder
 import kotlinx.android.synthetic.main.activity_rides.*
-import kotlinx.android.synthetic.main.activity_rides.Navigation_Button
-import kotlinx.android.synthetic.main.activity_rides.button
-import kotlinx.android.synthetic.main.activity_rides.button2
-import kotlinx.android.synthetic.main.activity_rides.button3
-import kotlinx.android.synthetic.main.activity_rides.Refresh__
 
 class Rides : AppCompatActivity() {
 
@@ -23,28 +18,28 @@ class Rides : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_rides)
 
-        Navigation_Button.setOnClickListener {
+        ride_offer_button.setOnClickListener {
             val intent = Intent(this, share_ride::class.java)
             startActivity(intent)
         }
 
-        button.setOnClickListener {
+        B_marketPlace.setOnClickListener {
             val intent = Intent (this, Marketplace::class.java)
             startActivity(intent)
         }
 
-        button2.setOnClickListener {
+        B_ride.setOnClickListener {
             val intent = Intent (this, Rides::class.java)
             startActivity(intent)
             finish()
         }
 
-        button3.setOnClickListener {
+        B_tutions.setOnClickListener {
             val intent = Intent (this, Tuitions::class.java)
             startActivity(intent)
         }
 
-        Refresh__.setOnClickListener {
+        B_foods.setOnClickListener {
             val intent = Intent (this, FoodCourt::class.java)
             startActivity(intent)
         }

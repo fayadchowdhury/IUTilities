@@ -11,7 +11,6 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.activity_buy_item.*
 import kotlinx.android.synthetic.main.activity_ride_details.*
 
 class RideDetails : AppCompatActivity() {
@@ -27,17 +26,16 @@ class RideDetails : AppCompatActivity() {
             Log.d("IUTils", "Error retrieving parcelable object")
             Toast.makeText(this, "ERROR RECEIVING PARCELABLE OBJECT", Toast.LENGTH_SHORT).show()
         } else {
-            detailsfrom.setText("From: ${ride_temp2.from.toString()}")
-            detailsto.setText("To:  ${ride_temp2.to.toString()}")
-            detailsseat.setText("Available Seats: ${ride_temp2.available_Seats.toString()}")
-            detailstime.setText("Time Range: ${ride_temp2.time.toString()}")
-            detailsphone.setText("Phone Number:  ${ride_temp2.phone_Number.toString()}")
-            detailsname.setText("Name: ${ride_temp2.name.toString()}")
+            detailsfrom.setText("From ${ride_temp2.from.toString()}")
+            detailsto.setText("To  ${ride_temp2.to.toString()}")
+            detailsseat.setText("${ride_temp2.available_Seats.toString()} seat(s)")
+            detailstime.setText("${ride_temp2.time.toString()}")
+            detailsname.setText("Courtesy of ${ride_temp2.name.toString()}")
             postername_tmp = ride_temp2.name.toString()
 
         }
 
-        contact_button3.setOnClickListener {
+        contact_ride_button.setOnClickListener {
             Toast.makeText(this, "Contact button clicked", Toast.LENGTH_SHORT).show()
             val dialog = AlertDialog.Builder(this)
             val dialogview = layoutInflater.inflate(R.layout.contact_dialog, null)

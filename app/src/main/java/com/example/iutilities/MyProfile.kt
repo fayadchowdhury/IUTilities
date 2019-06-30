@@ -20,8 +20,6 @@ import kotlinx.android.synthetic.main.food_court.*
 
 class MyProfile : AppCompatActivity() {
 
-    //Allow user to view and delete his/her own items, foods, rides, tuitions as required
-    //Work In Progress
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_profile)

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                                                    xmlns:app="http://schemas.android.com/apk/res-auto"
                                                    xmlns:tools="http://schemas.android.com/tools"
                                                    android:layout_width="match_parent"
@@ -12,69 +12,57 @@
 
         android:layout_width="418dp"
         android:layout_height="186dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
         app:cardCornerRadius="3dp"
         app:cardMaxElevation="1dp"
         app:cardElevation="1dp"
-        app:cardUseCompatPadding="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:cardUseCompatPadding="true">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:padding="10dp">
 
             <ImageView
                 android:id="@+id/itemPic"
                 android:layout_width="186dp"
                 android:layout_height="match_parent"
-                android:layout_marginStart="1dp"
-                android:layout_marginLeft="1dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent" />
+                android:layout_weight="1"/>
 
-            <TextView
-                android:id="@+id/itemName"
-                android:layout_width="196dp"
-                android:layout_height="44dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginBottom="100dp"
-                android:fontFamily="sans-serif"
-                android:text="TextView"
-                android:textAllCaps="true"
-                android:textColor="#E90D0D"
-                android:textSize="25sp"
-                android:textStyle="bold"
-                app:fontFamily="sans-serif-black"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1">
 
-            <TextView
-                android:id="@+id/itemPrice"
-                android:layout_width="194dp"
-                android:layout_height="35dp"
-                android:layout_marginBottom="16dp"
-                android:text="TextView"
-                android:textColor="#000000"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/itemName" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:id="@+id/itemName"
+                    android:layout_width="180dp"
+                    android:layout_height="50dp"
+                    android:fontFamily="sans-serif"
+                    android:text="TextView"
+                    android:textAllCaps="true"
+                    android:textColor="#E90D0D"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    app:fontFamily="sans-serif-black"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"/>
+
+                <TextView
+                    android:id="@+id/itemPrice"
+                    android:layout_width="180dp"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="20dp"
+                    android:text="TextView"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"/>
+
+            </LinearLayout>
+        </LinearLayout>
 
     </androidx.cardview.widget.CardView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

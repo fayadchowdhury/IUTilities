@@ -7,127 +7,90 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
 
         tools:context=".Register">
-
-        <Button
-            android:id="@+id/facebook_login"
-            android:layout_width="241dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:background="@drawable/rounded_button"
-            android:clickable="true"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:gravity="center"
-            android:text="Login with Facebook"
-            android:textColor="#ffffff"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/gmail_login"
-            app:layout_constraintVertical_bias="0.015" />
-
-        <Button
-            android:id="@+id/gmail_login"
-            android:layout_width="241dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="84dp"
-            android:layout_marginRight="84dp"
-            android:layout_marginBottom="56dp"
-            android:background="@drawable/gmailbutton"
-            android:clickable="true"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:text="Login with Gmail"
-            android:textColor="#ffffff"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/register_button" />
-
-        <Button
-            android:id="@+id/register_button"
-            android:layout_width="133dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="116dp"
-            android:background="@drawable/signin"
-            android:clickable="true"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:text="Register"
-            android:textColor="#ffffff"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/email_text"
-            app:layout_constraintStart_toStartOf="@+id/email_text"
-            app:layout_constraintTop_toBottomOf="@+id/contact_text"
-            app:layout_constraintVertical_bias="0.333" />
 
         <EditText
             android:id="@+id/username_text"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginTop="320dp"
+            android:layout_gravity="center"
             android:ems="10"
             android:hint="Username"
-            android:inputType="textPersonName"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/email_text"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/email_text"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.464" />
+            android:inputType="textPersonName" />
 
         <EditText
             android:id="@+id/email_text"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
             android:ems="10"
             android:hint="Email Address"
-            android:inputType="textEmailAddress"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/username_text"
-            app:layout_constraintVertical_bias="0.0" />
+            android:inputType="textEmailAddress" />
 
         <EditText
             android:id="@+id/password_text"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
             android:ems="10"
             android:hint="Password"
-            android:inputType="textPassword"
-            app:layout_constraintEnd_toEndOf="@+id/email_text"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/email_text"
-            app:layout_constraintTop_toBottomOf="@+id/email_text" />
+            android:inputType="textPassword" />
 
         <EditText
             android:id="@+id/contact_text"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
             android:ems="10"
             android:hint="Phone number"
-            app:layout_constraintEnd_toEndOf="@+id/email_text"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/email_text"
-            app:layout_constraintTop_toBottomOf="@+id/password_text" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:inputType="phone"/>
+
+        <Button
+            android:id="@+id/register_button"
+            android:layout_width="133dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_gravity="center"
+            android:background="@drawable/signin"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:text="Register"
+            android:textColor="#ffffff" />
+
+        <Button
+            android:id="@+id/gmail_login"
+            android:layout_width="241dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:background="@drawable/gmailbutton"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:text="Login with Gmail"
+            android:textColor="#ffffff" />
+
+        <Button
+            android:id="@+id/facebook_login"
+            android:layout_width="241dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:background="@drawable/rounded_button"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:gravity="center"
+            android:text="Login with Facebook"
+            android:textColor="#ffffff" />
+    </LinearLayout>
 </ScrollView>

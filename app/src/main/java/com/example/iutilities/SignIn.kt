@@ -40,7 +40,7 @@ class SignIn : AppCompatActivity() {
             FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
                 .addOnSuccessListener {
                     Toast.makeText(this, "User signed in successfully", Toast.LENGTH_SHORT).show()
-                    val intent = Intent(this, Profile::class.java)
+                    val intent = Intent(this, Marketplace::class.java)
                     intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
                     startActivity(intent)
                 }

@@ -56,7 +56,6 @@
         <activity android:name=".TuitionsPlaced" />
         <activity android:name=".Rides" />
         <activity android:name=".Marketplace" />
-        <activity android:name=".Profile" />
         <activity android:name=".Register" />
         <activity android:name=".SignIn" />
         <activity android:name=".LoginRegister" />

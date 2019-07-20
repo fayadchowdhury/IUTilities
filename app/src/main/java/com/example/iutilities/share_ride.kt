@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_rides.*
 import kotlinx.android.synthetic.main.activity_sell.*
@@ -28,8 +29,8 @@ class share_ride : AppCompatActivity() {
             {
                 val name = FirebaseAuth.getInstance(). currentUser?.displayName.toString()
                 val ride = RideObj(sharefrom.text.toString(), shareto.text.toString(), shareseat.text.toString(), sharetime.text.toString(), name, sharephone.text.toString())
-                val rideref = FirebaseDatabase.getInstance().getReference("Rides")
-                rideref.child("${sharefrom.text.toString()} ${shareto.text.toString()}").setValue(ride)
+                val rideref = FirebaseFirestore.getInstance().collection("rides")
+                rideref.document("${sharefrom.text.toString()} ${shareto.text.toString()}").set(ride)
                                     .addOnFailureListener {
                                         Toast.makeText(this, "Pushing failed.", Toast.LENGTH_SHORT).show()
                                     }

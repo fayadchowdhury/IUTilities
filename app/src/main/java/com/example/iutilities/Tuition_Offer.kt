@@ -5,6 +5,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.offer_tuitions.*
 
 class Tuition_Offer : AppCompatActivity() {
@@ -25,8 +26,8 @@ class Tuition_Offer : AppCompatActivity() {
                     institution_name.text.toString(), curriculum.text.toString(), description.text.toString()
                 )
 
-                val offernode = FirebaseDatabase.getInstance().getReference("Tuitions")
-                offernode.child("${student_address.text.toString()}").setValue(offer)
+                val offernode = FirebaseFirestore.getInstance().collection("tuitions")
+                offernode.document("${student_address.text.toString()}").set(offer)
                     .addOnFailureListener {
                         Toast.makeText(this, "Pushing unsuccessfull.", Toast.LENGTH_SHORT).show()
                     }

@@ -15,6 +15,7 @@ import android.widget.PopupMenu
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_sell.*
 import java.io.File
@@ -105,9 +106,9 @@ class Sell : AppCompatActivity() {
                             .addOnSuccessListener {
                                 url = it.toString()
                                 d("IUTils", "url within success listener = $url")
-                                val ref = FirebaseDatabase.getInstance().getReference("sell")
+                                val ref = FirebaseFirestore.getInstance().collection("sell")
                                 val item = ItemObj(cat_text.text.toString(), name_text.text.toString(), price_text.text.toString(), desc_text.text.toString(), url, poster)
-                                ref.child("${name_text.text.toString()}").setValue(item)
+                                ref.document("${name_text.text.toString()}").set(item)
                                     .addOnFailureListener {
                                         Toast.makeText(this, "Pushing failed. ${it.message}", Toast.LENGTH_SHORT).show()
                                     }

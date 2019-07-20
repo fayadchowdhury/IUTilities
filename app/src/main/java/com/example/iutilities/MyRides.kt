@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_my_rides.*
 
 class MyRides : AppCompatActivity() {
@@ -32,8 +33,8 @@ class MyRides : AppCompatActivity() {
         }
 
         delete_button.setOnClickListener {
-            val deleteref = FirebaseDatabase.getInstance().getReference("Rides").child("${ride_temp2.from.toString()} ${ride_temp2.to.toString()}")
-            deleteref.removeValue()
+            val deleteref = FirebaseFirestore.getInstance().collection("rides").document("${ride_temp2.from.toString()} ${ride_temp2.to.toString()}")
+            deleteref.delete()
                 .addOnSuccessListener {
                     Toast.makeText(this, "Deleted", Toast.LENGTH_SHORT).show()
                 }

@@ -7,6 +7,7 @@ import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_register.*
 
 class Register : AppCompatActivity() {
@@ -45,10 +46,10 @@ class Register : AppCompatActivity() {
             FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
                 .addOnSuccessListener {
                     Toast.makeText(this, "User created", Toast.LENGTH_SHORT).show()
-                    val ref = FirebaseDatabase.getInstance().getReference("users")
+                    val ref = FirebaseFirestore.getInstance().collection("users")
                     val uid = FirebaseAuth.getInstance().uid
                     val user = User(username, email, password, contact)
-                    ref.child("$uid").setValue(user)
+                    ref.document("$uid").set(user)
                         .addOnSuccessListener {
                             Toast.makeText(this, "User added to database successfully", Toast.LENGTH_SHORT).show()
                             val user_now = FirebaseAuth.getInstance().currentUser

@@ -10,6 +10,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.google.firebase.firestore.FirebaseFirestore
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_buy_item.*
 
@@ -36,29 +37,40 @@ class BuyItem : AppCompatActivity() {
             Picasso.get().load("${item_tmptmp.photourl.toString()}").into(itemImage)
         }
         contact_button.setOnClickListener {
-            Toast.makeText(this, "Contact button clicked", Toast.LENGTH_SHORT).show()
+//            Toast.makeText(this, "Contact button clicked", Toast.LENGTH_SHORT).show()
             val dialog = AlertDialog.Builder(this)
             val dialogview = layoutInflater.inflate(R.layout.contact_dialog, null)
-            val dbref = FirebaseDatabase.getInstance().getReference("users")
-            dbref.addListenerForSingleValueEvent(object : ValueEventListener {
-                override fun onCancelled(p0: DatabaseError) {
-                }
-
-                override fun onDataChange(p0: DataSnapshot) {
-                    p0.children.forEach{
-                        val user_tmp = it.getValue(User::class.java)
-                        if ( user_tmp != null )
-                        {
-                            if ( user_tmp.username == postername_tmp )
-                            {
-                                dialogview.findViewById<TextView>(R.id.contact_username).setText(user_tmp.username.toString())
-                                dialogview.findViewById<TextView>(R.id.contact_phone).setText(user_tmp.contact.toString())
-                                dialogview.findViewById<TextView>(R.id.contact_email).setText(user_tmp.email.toString())
-                            }
-                        }
+//            val dbref = FirebaseDatabase.getInstance().getReference("users")
+//            dbref.addListenerForSingleValueEvent(object : ValueEventListener {
+//                override fun onCancelled(p0: DatabaseError) {
+//                }
+//
+//                override fun onDataChange(p0: DataSnapshot) {
+//                    p0.children.forEach{
+//                        val user_tmp = it.getValue(User::class.java)
+//                        if ( user_tmp != null )
+//                        {
+//                            if ( user_tmp.username == postername_tmp )
+//                            {
+//                                dialogview.findViewById<TextView>(R.id.contact_username).setText(user_tmp.username.toString())
+//                                dialogview.findViewById<TextView>(R.id.contact_phone).setText(user_tmp.contact.toString())
+//                                dialogview.findViewById<TextView>(R.id.contact_email).setText(user_tmp.email.toString())
+//                            }
+//                        }
+//                    }
+//                }
+//            })
+            val dbref = FirebaseFirestore.getInstance().collection("users").whereEqualTo("username", postername_tmp)
+            dbref.get()
+                .addOnSuccessListener {
+                    for ( doc in it )
+                    {
+                        val user_tmp = doc.toObject(User::class.java)
+                        dialogview.findViewById<TextView>(R.id.contact_username).setText(user_tmp.username.toString())
+                        dialogview.findViewById<TextView>(R.id.contact_phone).setText(user_tmp.contact.toString())
+                        dialogview.findViewById<TextView>(R.id.contact_email).setText(user_tmp.email.toString())
                     }
                 }
-            })
             dialog.setView(dialogview)
             dialog.setCancelable(true)
             val contactdialog = dialog.create()

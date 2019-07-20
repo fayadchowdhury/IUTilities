@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log.d
 import android.widget.Toast
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.FirebaseFirestore
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_my_item.*
 
@@ -32,8 +33,8 @@ class MyItem : AppCompatActivity() {
         }
 
         delete_button.setOnClickListener {
-            val deleteref = FirebaseDatabase.getInstance().getReference("sell").child("${item_tmptmp.name.toString()}")
-            deleteref.removeValue()
+            val deleteref = FirebaseFirestore.getInstance().collection("sell").document("${item_tmptmp.name.toString()}")
+            deleteref.delete()
                 .addOnSuccessListener {
                     Toast.makeText(this, "Deleted", Toast.LENGTH_SHORT).show()
                 }
